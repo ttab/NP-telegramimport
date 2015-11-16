@@ -175,7 +175,8 @@
 			</xsl:if>
 			<!-- links -->
                     <links>
-                    	<link><a><xsl:attribute name="href"><xsl:value-of select="newsMessage/itemSet/newsItem[@guid = $mainuri]/@guid"/></xsl:attribute>TT:s kundwebb</a></link>  <!-- Sätt ihop en länk till tt:s kundwebb och denna nyhet. Visas i telegramfliken under Länkar -->
+                    	<link><a><xsl:attribute name="href"><xsl:value-of select="newsMessage/itemSet/newsItem[@guid = $mainuri]/@guid"/></xsl:attribute><xsl:text>TT:s kundwebb </xsl:text></a></link>  <!-- Sätt ihop en länk till tt:s kundwebb och denna nyhet. Visas i telegramfliken under Länkar -->
+                    	<link><a><xsl:attribute name="href"><xsl:value-of select="concat(newsMessage/itemSet/newsItem[@guid = $mainuri]/@guid,'?channel=user:internkoll:artikelftp&amp;agr=41329&amp;ak=4728d90f-cef8-4349-b603-2e20803df607')"/></xsl:attribute><xsl:text> Hämtning</xsl:text></a></link>  <!-- Sätt ihop en länk till tt:s kundwebb och denna nyhet. Visas i telegramfliken under Länkar -->
                     </links>
 			<sent pattern="yyyy-MM-dd'T'HH:mm:ss" locale="sv"><xsl:value-of select="$datetimesent"/></sent> <!-- I NP-importen heter fältet sent och visas i telegramfliken som Skickat. Fältet Mottaget sätts automatiskt av NP-importen -->
 		</metadata>

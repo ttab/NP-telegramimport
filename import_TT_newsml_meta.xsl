@@ -10,6 +10,7 @@
 	       
 	       Tog bort direktlänken för att Skicka artikel eftersom den kräver ytterligare utveckling av TT. JL 20150828.
 	       Komplettering för att klara contentMetaExtPropertys båda varianter. JL 2015-11-04
+	       JL 2012-12-04 Lade till så ersatta texter markeras
 	-->
 	
 	<xsl:output method="xml" indent="yes" encoding="UTF-8" standalone="yes"/>
@@ -150,6 +151,14 @@
 			</xsl:if>-->
                     <!-- ref_action -->
 			<!-- ref_id -->
+			<xsl:if test="newsMessage/itemSet/newsItem[@guid = $mainuri]/itemMeta/link[@rel ='irel:previousVersion']">
+				<ref>
+					<xsl:for-each select="newsMessage/itemSet/newsItem[@guid = $mainuri]/itemMeta/link[@rel ='irel:previousVersion']">
+						<external_system_id>41</external_system_id>
+						<external_id><xsl:value-of select="./@href"/></external_id>
+					</xsl:for-each>
+				</ref>
+			</xsl:if> 
 			<slug><xsl:value-of select="$slugg"/></slug> <!-- I np-importen heter fältet slug och visas som Slugg i telegramfliken -->
 			<!-- custom 1-10 -->
 			<custom_1><xsl:value-of select="$sektion"/></custom_1>   <!-- Fältet custom_1 i np-importen innehåller vilkan avdelning det gäller och visas som Avdelning i telegramfliken -->

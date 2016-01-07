@@ -3,7 +3,7 @@
 	version="1.0" 
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"	
 	xmlns:xhtml="http://www.w3.org/1999/xhtml"
-	 exclude-result-prefixe="xhtml xsl">
+ 	exclude-result-prefixes="xhtml xsl">
 	
 	<!-- XSLT som visar hur man kan konvertera TTNewsMLG2-version 2.20 till xml-filer för import som telegram i Newspilot. 
 	       Telegramimporten sker i två delar där metadata hanteras av ett filter och själva innehållet av ett annat.
@@ -18,7 +18,6 @@
 	       2015-09-16 JL justerade ytterligare för sidverkstaden
 	       2015-09-16 JL lade till hantering av aside notes
 	       2015-09-23 JL Ändrade bildlänk och fixade med dateline
-
 	-->
 
 	<xsl:variable name="npdoc_ns">http://www.infomaker.se/npdoc/2.1</xsl:variable> <!-- NP vill ha namespace på alla element. -->

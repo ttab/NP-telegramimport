@@ -53,8 +53,10 @@
 			<xsl:element name="dateline" namespace="{$npdoc_ns}"><xsl:element name="p" namespace="{$npdoc_ns}"><xsl:value-of select="normalize-space(div[@class = 'dat']/span[@class = 'source'])"/></xsl:element></xsl:element>
 			<xsl:apply-templates select="h4"/>   <!-- h4 är ingressen -->
 			<xsl:element name="body" namespace="{$npdoc_ns}">
+				
 			<xsl:apply-templates select="div[@class = 'bodytext']"/>
 			<xsl:apply-templates select="div[@class = 'byline']"/>
+				<xsl:apply-templates select="main"/>
 				<xsl:if test="figure">
 					<xsl:element name="p" namespace="{$npdoc_ns}"></xsl:element>
 					<xsl:element name="p" namespace="{$npdoc_ns}"></xsl:element>

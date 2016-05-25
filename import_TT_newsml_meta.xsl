@@ -11,6 +11,8 @@
 	       Tog bort direktlänken för att Skicka artikel eftersom den kräver ytterligare utveckling av TT. JL 20150828.
 	       Komplettering för att klara contentMetaExtPropertys båda varianter. JL 2015-11-04
 	       JL 2012-12-04 Lade till så ersatta texter markeras
+              JL 2016-01-14 Lade till hantering för TT print
+             JL 2016-02-05 Lade till hantering för Pressmeddelanden
 	-->
 	
 	<xsl:output method="xml" indent="yes" encoding="UTF-8" standalone="yes"/>
@@ -40,16 +42,11 @@
 			</xsl:choose>
 		</xsl:variable> <!-- Ta in vilken status det är. Kan vara PUBL, DATA eller INFO -->
 
-		<xsl:variable name="kategorier"> <!-- Samla ihop alla ämneskategorier som är satta på nyhetsbojektet. Dessa läggs som förkortningar med : mellan för att användas för urval i telegramfliken -->
-			<xsl:if test="newsMessage/itemSet/newsItem[@guid = $mainuri]/contentMeta/subject[@type = 'cpnat:abstract']">
-				<xsl:call-template name="SamlaSubref"><xsl:with-param name="mainuri" select="$mainuri"/></xsl:call-template>
-			</xsl:if>
-		</xsl:variable> 
-		
 		<xsl:variable name="source_label"><xsl:value-of select="normalize-space(newsMessage/itemSet/newsItem[@guid = $mainuri]/contentMeta/subject[@type = 'tt:product']/name)"/></xsl:variable> <!-- TT:s produktnamn -->
 		
 		<xsl:variable name="infosource"> <!-- Källan till materialet i nyhetsobjektet. TT används som default om de andra varianterna inte ger något resultat. -->
 			<xsl:choose>
+				<xsl:when test="newsMessage/itemSet/newsItem[@guid = $mainuri]/rightsInfo/copyrightHolder/name"><xsl:value-of select="newsMessage/itemSet/newsItem[@guid = $mainuri]/rightsInfo/copyrightHolder/name"/></xsl:when>
 				<xsl:when test="newsMessage/itemSet/packageItem/itemMeta/provider"><xsl:value-of select="substring-after(newsMessage/itemSet/packageItem/itemMeta/provider/@qcode,'nprov:')"/></xsl:when>
 				<xsl:when test="newsMessage/itemSet/newsItem[@guid = $mainuri]/contentMeta/infoSource/name"><xsl:value-of select="newsMessage/itemSet/newsItem[@guid = $mainuri]/contentMeta/infoSource/name"/></xsl:when>
 				<xsl:when test="newsMessage/itemSet/newsItem[@guid = $mainuri]/contentMeta/infoSource/@literal"><xsl:value-of select="newsMessage/itemSet/newsItem[@guid = $mainuri]/contentMeta/infoSource/@literal"/></xsl:when>
@@ -66,11 +63,15 @@
 		
 		<xsl:variable name="tkod">
 			<xsl:choose>
+				<xsl:when test="contains($produktkoder,':MFT')">FEA</xsl:when>
 				<xsl:when test="contains($produktkoder,':FT')">FEA</xsl:when>
+				<xsl:when test="contains($produktkoder,':PRM')">PRM</xsl:when>
+				<xsl:when test="contains($produktkoder,':REDINFUTR:')">UTR</xsl:when>
+				<xsl:when test="contains($produktkoder,':TTPRI:')">TTPRI</xsl:when>
 				<xsl:when test="contains($produktkoder,':TTINR:')">INR</xsl:when>
 				<xsl:when test="contains($produktkoder,':TTUTR:')">UTR</xsl:when>
+				<xsl:when test="contains($produktkoder,':TTSPTPL:')">SPTPL</xsl:when>
 				<xsl:when test="contains($produktkoder,':TTSPT:')">SPT</xsl:when>
-				<xsl:when test="contains($produktkoder,':TTSPTPL:')">SPT</xsl:when>
 				<xsl:when test="contains($produktkoder,':TTSTJ:')">SPT</xsl:when>
 				<xsl:when test="contains($produktkoder,':TTSPR:')">SPR</xsl:when>
 				<xsl:when test="contains($produktkoder,':REDINFSPT:')">SPT</xsl:when>
@@ -87,11 +88,15 @@
 		
 		<xsl:variable name="sektion">
 			<xsl:choose>
+				<xsl:when test="contains($produktkoder,':MFT')">Feature</xsl:when>
 				<xsl:when test="contains($produktkoder,':FT')">Feature</xsl:when>
+				<xsl:when test="contains($produktkoder,':TTPRI:')">TT Print</xsl:when>
+				<xsl:when test="contains($produktkoder,':REDINFUTR:')">Utrikes</xsl:when>
+				<xsl:when test="contains($produktkoder,':PRM')">Pressmeddelande</xsl:when>
 				<xsl:when test="contains($produktkoder,':TTINR:')">Inrikes</xsl:when>
 				<xsl:when test="contains($produktkoder,':TTUTR:')">Utrikes</xsl:when>
+				<xsl:when test="contains($produktkoder,':TTSPTPL:')">Sport Plus</xsl:when>
 				<xsl:when test="contains($produktkoder,':TTSPT:')">Sport</xsl:when>
-				<xsl:when test="contains($produktkoder,':TTSPTPL:')">Sport</xsl:when>
 				<xsl:when test="contains($produktkoder,':TTSTJ:')">Sport</xsl:when>
 				<xsl:when test="contains($produktkoder,':TTSPR:')">Sport</xsl:when>
 				<xsl:when test="contains($produktkoder,':REDINFSPT:')">Sport</xsl:when>
@@ -105,6 +110,15 @@
 				<xsl:otherwise>Inrikes</xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>
+		
+		<xsl:variable name="kategorier"> <!-- Samla ihop alla ämneskategorier som är satta på nyhetsbojektet. Dessa läggs som förkortningar med : mellan för att användas för urval i telegramfliken -->
+			<xsl:choose>
+				<xsl:when test="newsMessage/itemSet/newsItem[@guid = $mainuri]/contentMeta/subject[@type = 'cpnat:abstract']">
+					<xsl:call-template name="SamlaSubref"><xsl:with-param name="mainuri" select="$mainuri"/></xsl:call-template>
+				</xsl:when>
+				<xsl:when test="contains($sektion,'Sport')">:SPT:</xsl:when>
+			</xsl:choose>
+		</xsl:variable> 
 		
 		<xsl:variable name="notering"><xsl:value-of select="newsMessage/itemSet/newsItem[@guid = $mainuri]/itemMeta/edNote"/></xsl:variable>  <!-- Info från TT till kunderna -->
 		
@@ -120,6 +134,13 @@
 		</xsl:variable> <!-- Om nyheten ingår i webbtjänsten har den en speciell webb-prio -->
            
 		<xsl:variable name="embargo"><xsl:value-of select="newsMessage/itemSet/packageItem/itemMeta/embargoed"/></xsl:variable>  <!-- Eventuell embargo-tid -->
+
+             <xsl:variable name="refuno">
+	             	<xsl:for-each select="newsMessage/itemSet/newsItem[@guid = $mainuri]/itemMeta/link[@rel ='irel:previousVersion']">
+       	      		<xsl:value-of select="concat(./@href,' : ')"/>
+             		</xsl:for-each>
+             </xsl:variable>
+		<xsl:variable name="jobbid" select="newsMessage/itemSet/newsItem[@guid = $mainuri]/contentMeta/contentMetaExtProperty[@type = 'ttext:job']/@literal"/>
 
 		<xsl:variable name="personer"><xsl:for-each select="newsMessage/itemSet/newsItem[@guid = $mainuri]/contentMeta/subject[@type = 'cpnat:person']"><xsl:value-of select="./name"/><xsl:if test="position() != last()">,</xsl:if></xsl:for-each></xsl:variable>           
 		<xsl:variable name="organisationer"><xsl:for-each select="newsMessage/itemSet/newsItem[@guid = $mainuri]/contentMeta/subject[@type = 'cpnat:organisation']"><xsl:value-of select="./name"/><xsl:if test="position() != last()">,</xsl:if></xsl:for-each></xsl:variable>           
@@ -152,12 +173,12 @@
                     <!-- ref_action -->
 			<!-- ref_id -->
 			<xsl:if test="newsMessage/itemSet/newsItem[@guid = $mainuri]/itemMeta/link[@rel ='irel:previousVersion']">
-				<ref>
-					<xsl:for-each select="newsMessage/itemSet/newsItem[@guid = $mainuri]/itemMeta/link[@rel ='irel:previousVersion']">
+					<ref>
 						<external_system_id>41</external_system_id>
-						<external_id><xsl:value-of select="./@href"/></external_id>
-					</xsl:for-each>
-				</ref>
+						<xsl:for-each select="newsMessage/itemSet/newsItem[@guid = $mainuri]/itemMeta/link[@rel ='irel:previousVersion']">
+							<external_id><xsl:value-of select="./@href"/></external_id>
+						</xsl:for-each>
+					</ref>
 			</xsl:if> 
 			<slug><xsl:value-of select="$slugg"/></slug> <!-- I np-importen heter fältet slug och visas som Slugg i telegramfliken -->
 			<!-- custom 1-10 -->
@@ -165,8 +186,8 @@
 			<custom_2><xsl:value-of select="$produktkoder"/></custom_2> <!-- I fältet custom_2 ligger TT:s nya produktkoder, kolonseparerade. Det kan visas som Eget-2 i telegramfliken -->
 			<custom_3><xsl:value-of select="$webbprio"/></custom_3> <!-- Eventuell webb-prio läggs i fältet custom_3 som kan visas som Eget-3 i telegramfliken -->
 			<custom_4><xsl:value-of select="$embargo"/></custom_4> <!-- Om ett embargo är angivet så sätts det i fältet custom_4 i NP-importen -->
-			<custom_5></custom_5>
-			<custom_6></custom_6>
+			<custom_5><xsl:value-of select="$refuno"/></custom_5>
+			<custom_6><xsl:value-of select="$jobbid"/></custom_6>
 			<custom_7><xsl:value-of select="$personer"/></custom_7> <!-- De personer som taggats i texten. -->
 			<custom_8><xsl:value-of select="$organisationer"/></custom_8> <!-- De organisationer som taggats i texten -->
 			<custom_9><xsl:value-of select="$platser"/></custom_9> <!-- De platser som taggats i texten. -->

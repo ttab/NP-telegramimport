@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec" xslt-version="1.0" stylesheet="file:/C:/TTAB_Git/NP-telegramimport/import_TT_newsml_data.xsl"
+    xmlns:np="http://www.infomaker.se/npdoc/2.1">
+    
+    
+    <x:scenario label="Test av huvudtemplate '/'">
+        <x:context href="weilanddoduv.xml"/>
+        <x:expect label="Ska ge korrekt resultat" href="weilanddoduv_data.xml" select="/"/>
+        <x:expect label="Vi ska få korrekt rubrik" test="nptgr/np:npdoc/np:headline/np:p = 'Scott Weiland är död'" />
+        <x:expect label="Vi ska få korrekt pagedateline" test="nptgr/np:npdoc/np:pagedateline/np:p = 'Musik'" />
+        <x:expect label="Vi ska få korrekt dateline" test="nptgr/np:npdoc/np:dateline/np:p = 'TT'" />
+        <x:expect label="Vi ska ha en mellanrubrik" test="nptgr/np:npdoc/np:body/np:subheadline1[1] = 'Mellanrubrik'" />
+        <x:expect label="Vi ska ha nästa mellanrubrik med en fråga" test="nptgr/np:npdoc/np:body/np:subheadline1[2] = 'Vad heter din favoritskiva?'" />
+        <x:expect label="Vi ska ha pratminus i paragraf 5" test="substring(nptgr/np:npdoc/np:body/np:p[5],1,1) = '–'"/>
+        <x:expect label="Vi ska ha 11 paragrafer" test="count(nptgr/np:npdoc/np:body/np:p) = 11"/>
+        <x:expect label="Vi ska ha korrekt bildlänk" test="nptgr/np:npdoc/np:body/np:p[11]/np:a = 'http://tt.se/media/image/8B0CC3D8EE0440888EDB6A6D4E72003C'"/>
+    </x:scenario>
+
+
+
+
+</x:description>

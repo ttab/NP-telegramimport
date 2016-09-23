@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec" stylesheet="file:/C:/TTAB_Git/NP-telegramimport/import_TT_newsml_meta.xsl">
+    
+    
+    <x:scenario label="Test av huvud-templatse som matchar '/">
+        <x:context href="weilanddoduv.xml"/>
+        <x:expect label="Vi ska få korrekt external_id" test="metadata/external_id = 'http://tt.se/media/text/151204-weilanddoduv-194983'" />
+        <x:expect label="Vi ska få korrekt prod_id" test="metadata/prod_id = 'http://tt.se/media/text/151204-weilanddoduv-194983'" />
+        <x:expect label="Vi ska få korrekt name" test="metadata/name = 'Scott Weiland är död'" />
+        <x:expect label="Vi ska få korrekt edstat" test="metadata/edstat = 'PUBL'" />
+        <x:expect label="Vi ska få korrekt category" test="metadata/category = ':MUS:'" />
+        <x:expect label="Vi ska få tomt source_label" test="metadata/source_label = ''" />
+        <x:expect label="Vi ska få korrekt source" test="metadata/source = 'TT'" />
+        <x:expect label="Vi ska få korrekt destination" test="metadata/destination = 'ALL'" />
+        <x:expect label="Vi ska få korrekt prod" test="metadata/prod = 'NOJ'" />
+        <x:expect label="Vi ska få korrekt note" test="metadata/note = 'Uppdaterad med ett stycke om reaktionerna på Weilands död.'" />
+        <x:expect label="Vi ska få korrekt prio" test="metadata/prio = '4'" />
+        <x:expect label="Vi ska få korrekt externt system" test="metadata/ref/external_system_id = '41'" />
+        <x:expect label="Vi ska få korrekt externt id" test="metadata/ref/external_id[1] = 'http://tt.se/media/text/151204-weilanddod-194798'" />
+        <x:expect label="Vi ska få korrekt slugg" test="metadata/slug = 'weilanddödUV'" />
+        <x:expect label="Vi ska få korrekt avdelning" test="metadata/custom_1 = 'Nöje och Kultur'" />
+        <x:expect label="Vi ska få korrekt produktkoder" test="metadata/custom_2 = ':TTNOJKUL:TTNOJKULN:TWNOJ:'" />
+        <x:expect label="Vi ska få korrekt custom_3" test="metadata/custom_3 = '2'" />
+        <x:expect label="Vi ska få tomt custom_4" test="metadata/custom_4 = ''" />
+        <x:expect label="Vi ska få custom_5 med uri" test="metadata/custom_5 = 'http://tt.se/media/text/151204-weilanddod-194798 : '" />
+        <x:expect label="Vi ska få custom_6 med jobbid" test="metadata/custom_6 = '109122'" />
+        <x:expect label="Vi ska få korrekt personer" test="metadata/custom_7 = 'Dave Navarro,Juliette Lewis,Krist Novoselic,Matt Sorum,Ryan Adam'" />
+        <x:expect label="Vi ska få korrekt organisationer" test="metadata/custom_8 = 'Addiction,Slash,Velvet'" />
+        <x:expect label="Vi ska få korrekt platser" test="metadata/custom_9 = 'USA,Göteborg,LA Times,Minnesota,Stockholm,Temple Pilot'" />
+        <x:expect label="Vi ska få korrekt objekt" test="metadata/custom_10 = 'Gun,Jane,Rose,Scott Weiland and The Wildabaouts,Scott Weiland and The Wildabouts,The Wildabouts'" />
+        <x:expect label="Vi ska få korrekt länk" test="metadata/links/link[1]/a/@href = 'http://tt.se/media/text/151204-weilanddoduv-194983'" />
+        <x:expect label="Vi ska få korrekt datum och tid" test="metadata/sent = '2015-12-04T10:54:09'" />
+    </x:scenario>
+
+
+
+
+
+
+</x:description>

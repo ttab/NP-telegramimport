@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<metadata>
+   <external_id>194983</external_id>
+   <prod_id>http://tt.se/media/text/151204-weilanddoduv-194983</prod_id>
+   <name>Scott Weiland är död</name>
+   <edstat>PUBL</edstat>
+   <category>:MUS:</category>
+   <source_label/>
+   <source>TT</source>
+   <destination>ALL</destination>
+   <prod>NOJ</prod>
+   <note>Uppdaterad med ett stycke om reaktionerna på Weilands död.</note>
+   <prio>4</prio>
+   <ref>
+      <external_system_id>41</external_system_id>
+      <external_id>http://tt.se/media/text/151204-weilanddod-194798</external_id>
+   </ref>
+   <slug>weilanddödUV</slug>
+   <custom_1>Nöje och Kultur</custom_1>
+   <custom_2>:TTNOJKUL:TTNOJKULN:TWNOJ:</custom_2>
+   <custom_3>2</custom_3>
+   <custom_4/>
+   <custom_5/>
+   <custom_6/>
+   <custom_7>Dave Navarro,Juliette Lewis,Krist Novoselic,Matt Sorum,Ryan Adam</custom_7>
+   <custom_8>Addiction,Slash,Velvet</custom_8>
+   <custom_9>USA,Göteborg,LA Times,Minnesota,Stockholm,Temple Pilot</custom_9>
+   <custom_10>Gun,Jane,Rose,Scott Weiland and The Wildabaouts,Scott Weiland and The Wildabouts,The Wildabouts</custom_10>
+   <links>
+      <link>
+         <a href="http://tt.se/media/text/151204-weilanddoduv-194983">TT:s kundwebb</a>
+      </link>
+   </links>
+   <sent pattern="yyyy-MM-dd'T'HH:mm:ss" locale="sv">2015-12-04T10:54:09</sent>
+</metadata>

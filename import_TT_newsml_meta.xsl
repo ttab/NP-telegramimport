@@ -10,9 +10,10 @@
 	       
 	       Tog bort direktlänken för att Skicka artikel eftersom den kräver ytterligare utveckling av TT. JL 20150828.
 	       Komplettering för att klara contentMetaExtPropertys båda varianter. JL 2015-11-04
-	       JL 2012-12-04 Lade till så ersatta texter markeras
+	       JL 2016-12-04 Lade till så ersatta texter markeras
               JL 2016-01-14 Lade till hantering för TT print
              JL 2016-02-05 Lade till hantering för Pressmeddelanden
+             JL 2016-09-23 Tog bort användning av externt id.
 	-->
 	
 	<xsl:output method="xml" indent="yes" encoding="UTF-8" standalone="yes"/>
@@ -22,12 +23,13 @@
 		
 		<xsl:variable name="mainuri" select="newsMessage/itemSet/packageItem/groupSet/group[@role = 'group:main']/itemRef/@residref"/> <!-- Börja med att hämta den id-referens som pekar ut main newsitem i paketet. NewsML-filen har en package item även om det bara är en ensam text. -->
 		
-		<xsl:variable name="externt_id">
+		<!-- Den här är inte alltid satt så vi använder prodiduri överallt istället. -->
+		<!--<xsl:variable name="externt_id">
 			<xsl:choose>
 				<xsl:when test="normalize-space(newsMessage/itemSet/newsItem[@guid = $mainuri]/contentMeta/contentMetaExtProperty[@type = 'ttext:originaltransmissionreference']) != ''"><xsl:value-of select="normalize-space(newsMessage/itemSet/newsItem[@guid = $mainuri]/contentMeta/contentMetaExtProperty[@type = 'ttext:originaltransmissionreference'])"/></xsl:when>
 				<xsl:otherwise><xsl:value-of select="normalize-space(newsMessage/itemSet/newsItem[@guid = $mainuri]/contentMeta/contentMetaExtProperty[@type = 'ttext:originaltransmissionreference']/@literal)"/></xsl:otherwise>
 			</xsl:choose>
-		</xsl:variable> <!-- Hämta TT:s id på artikeln -->
+		</xsl:variable>--> <!-- Hämta TT:s id på artikeln -->
 
 		<xsl:variable name="prodiduri"><xsl:value-of select="normalize-space(newsMessage/itemSet/newsItem[@guid = $mainuri]/@guid)"/></xsl:variable> <!-- Hämtar TT:s kompletta guid till nyhetsobjektet. Inte att blanda ihop med TT:s begrepp PRODUKT-ID som anger saker som INR och UTR. -->
 
@@ -151,7 +153,7 @@
 
                <!-- Här börjar vi bygga output för NewsPilot -->
 		<metadata>
-			<external_id><xsl:value-of select="$externt_id"/></external_id>  <!-- I NP-importen heter fältet external_id och ska visas som Externt id i Telegramfliken. Men just nu används prod_id till båda fälten.  -->
+			<external_id><xsl:value-of select="$prodiduri"/></external_id>  <!-- I NP-importen heter fältet external_id och ska visas som Externt id i Telegramfliken. Men just nu används prod_id till båda fälten.  Ska vara justerat i NP 4.8 -->
 			<prod_id><xsl:value-of select="$prodiduri"/></prod_id> <!-- I NP-importen heter fältet prod_id och ska visas som Produkt-ID i Telegramfliken. Men just nu används prod_id till båda fälten.  -->
 			<!-- label <label>Label: </label>-->
 			<name><xsl:value-of select="$namnet"/></name> <!-- I NP-importen heter fältet name och visas som Namn i telegramfliken. -->
@@ -205,8 +207,9 @@
 			</xsl:if>
 			<!-- links -->
                     <links>
-                    	<link><a><xsl:attribute name="href"><xsl:value-of select="newsMessage/itemSet/newsItem[@guid = $mainuri]/@guid"/></xsl:attribute><xsl:text>TT:s kundwebb </xsl:text></a></link>  <!-- Sätt ihop en länk till tt:s kundwebb och denna nyhet. Visas i telegramfliken under Länkar -->
-                    	<link><a><xsl:attribute name="href"><xsl:value-of select="concat(newsMessage/itemSet/newsItem[@guid = $mainuri]/@guid,'?channel=user:internkoll:artikelftp&amp;agr=41329&amp;ak=4728d90f-cef8-4349-b603-2e20803df607')"/></xsl:attribute><xsl:text> Hämtning</xsl:text></a></link>  <!-- Sätt ihop en länk till tt:s kundwebb och denna nyhet. Visas i telegramfliken under Länkar -->
+                    	<link><a><xsl:attribute name="href"><xsl:value-of select="newsMessage/itemSet/newsItem[@guid = $mainuri]/@guid"/></xsl:attribute><xsl:text>TT:s kundwebb</xsl:text></a></link>  <!-- Sätt ihop en länk till tt:s kundwebb och denna nyhet. Visas i telegramfliken under Länkar -->
+                    	<!-- Genom att sätta upp ett speciellt hämtkonto och en api-nyckel kan man ha en länk till för att hämta en ny kopia av samma text och importera som artikel i NP. 
+                    	<link><a><xsl:attribute name="href"><xsl:value-of select="concat(newsMessage/itemSet/newsItem[@guid = $mainuri]/@guid,'?[#KANAL:ANVÄNDARE#]&amp;agr=[#AGREEMENT#]&amp;ak=[#APINYCKEL]')"/></xsl:attribute><xsl:text> Hämtning</xsl:text></a></link>-->
                     </links>
 			<sent pattern="yyyy-MM-dd'T'HH:mm:ss" locale="sv"><xsl:value-of select="$datetimesent"/></sent> <!-- I NP-importen heter fältet sent och visas i telegramfliken som Skickat. Fältet Mottaget sätts automatiskt av NP-importen -->
 		</metadata>

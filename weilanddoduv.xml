@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<newsMessage>
+  <!-- spec at http://tt.se/spec/newsml -->
+  <header>
+    <sent>2015-12-04T11:05:29+01:00</sent>
+    <sender>tt.se</sender>
+    <signal qcode="nmsig:atomic"/>
+  </header>
+  <itemSet>
+    <packageItem guid="http://tt.se/media/text/151204-weilanddoduv-194983-pack" version="1"
+      standard="NewsML-G2" standardversion="2.20" conformance="power" xml:lang="sv">
+      <catalogRef href="http://www.iptc.org/std/catalog/catalog.IPTC-G2-Standards_24.xml"/>
+      <catalogRef href="http://tt.se/spec/catalog/catalog.tt-g2.1_0.xml"/>
+      <itemMeta>
+        <itemClass qcode="ninat:text"/>
+        <provider qcode="nprov:TT"/>
+        <versionCreated>2015-12-04T10:54:09+01:00</versionCreated>
+        <pubStatus qcode="stat:usable"/>
+        <edNote>Uppdaterad med ett stycke om reaktionerna på Weilands död.</edNote>
+      </itemMeta>
+      <groupSet root="root">
+        <group id="root" role="group:main">
+          <itemRef residref="http://tt.se/media/text/151204-weilanddoduv-194983"/>
+          <groupRef idref="media"/>
+        </group>
+        <group id="media" role="group:package" mode="pgrmod:bag">
+          <itemRef residref="http://tt.se/media/image/8B0CC3D8EE0440888EDB6A6D4E72003C">
+            <altId type="tt:associd">a000</altId>
+          </itemRef>
+        </group>
+      </groupSet>
+    </packageItem>
+    <newsItem guid="http://tt.se/media/text/151204-weilanddoduv-194983" version="1"
+      standard="NewsML-G2" standardversion="2.20" conformance="power">
+      <catalogRef href="http://www.iptc.org/std/catalog/catalog.IPTC-G2-Standards_24.xml"/>
+      <catalogRef href="http://tt.se/spec/catalog/catalog.tt-g2.1_0.xml"/>
+      <rightsInfo>
+        <copyrightHolder uri="http://tt.se/copyright">
+          <name>TT</name>
+        </copyrightHolder>
+      </rightsInfo>
+      <itemMeta>
+        <itemClass qcode="ninat:text"/>
+        <provider qcode="nprov:TT"/>
+        <versionCreated>2015-12-04T10:54:09+01:00</versionCreated>
+        <pubStatus qcode="stat:usable"/>
+        <edNote>Uppdaterad med ett stycke om reaktionerna på Weilands död.</edNote>
+        <link rel="irel:previousVersion" href="http://tt.se/media/text/151204-weilanddod-194798"/>
+      </itemMeta>
+      <contentMeta>
+        <!-- urgency is defined at http://tt.se/spec/prio/1.0 -->
+        <urgency>4</urgency>
+        <contentCreated>2015-12-04T10:54:09+01:00</contentCreated>
+        <language tag="sv"/>
+        <subject type="cpnat:abstract" qcode="medtop:20000013"
+          typeuri="http://tt.se/spec/subref/1.0">
+          <name>Musik</name>
+        </subject>
+        <subject type="tt:product" literal="TTNOJKUL" typeuri="http://tt.se/spec/product/1.0">
+          <name>Nöje och Kultur</name>
+        </subject>
+        <subject type="tt:product" literal="TTNOJKULN" typeuri="http://tt.se/spec/product/1.0">
+          <name>Nöje och kultur - notis</name>
+        </subject>
+        <subject type="tt:product" literal="TWNOJ" typeuri="http://tt.se/spec/product/1.0">
+          <name>Webb Nöje &amp; kultur</name>
+        </subject>
+        <subject type="cpnat:person" typeuri="http://tt.se/spec/person/1.0">
+          <name>Dave Navarro</name>
+        </subject>
+        <subject type="cpnat:person" typeuri="http://tt.se/spec/person/1.0">
+          <name>Juliette Lewis</name>
+        </subject>
+        <subject type="cpnat:person" typeuri="http://tt.se/spec/person/1.0">
+          <name>Krist Novoselic</name>
+        </subject>
+        <subject type="cpnat:person" typeuri="http://tt.se/spec/person/1.0">
+          <name>Matt Sorum</name>
+        </subject>
+        <subject type="cpnat:person" typeuri="http://tt.se/spec/person/1.0">
+          <name>Ryan Adam</name>
+        </subject>
+        <subject type="cpnat:organisation" typeuri="http://tt.se/spec/organisation/1.0">
+          <name>Addiction</name>
+        </subject>
+        <subject type="cpnat:organisation" typeuri="http://tt.se/spec/organisation/1.0">
+          <name>Slash</name>
+        </subject>
+        <subject type="cpnat:organisation" typeuri="http://tt.se/spec/organisation/1.0">
+          <name>Velvet</name>
+        </subject>
+        <subject type="cpnat:place" typeuri="http://tt.se/spec/place/1.0" literal="plc_usa">
+          <name>USA</name>
+        </subject>
+        <subject type="cpnat:place" typeuri="http://tt.se/spec/place/1.0">
+          <name>Göteborg</name>
+        </subject>
+        <subject type="cpnat:place" typeuri="http://tt.se/spec/place/1.0">
+          <name>LA Times</name>
+        </subject>
+        <subject type="cpnat:place" typeuri="http://tt.se/spec/place/1.0">
+          <name>Minnesota</name>
+        </subject>
+        <subject type="cpnat:place" typeuri="http://tt.se/spec/place/1.0">
+          <name>Stockholm</name>
+        </subject>
+        <subject type="cpnat:place" typeuri="http://tt.se/spec/place/1.0">
+          <name>Temple Pilot</name>
+        </subject>
+        <subject type="cpnat:object" typeuri="http://tt.se/spec/object/1.0">
+          <name>Gun</name>
+        </subject>
+        <subject type="cpnat:object" typeuri="http://tt.se/spec/object/1.0">
+          <name>Jane</name>
+        </subject>
+        <subject type="cpnat:object" typeuri="http://tt.se/spec/object/1.0">
+          <name>Rose</name>
+        </subject>
+        <subject type="cpnat:object" typeuri="http://tt.se/spec/object/1.0">
+          <name>Scott Weiland and The Wildabaouts</name>
+        </subject>
+        <subject type="cpnat:object" typeuri="http://tt.se/spec/object/1.0">
+          <name>Scott Weiland and The Wildabouts</name>
+        </subject>
+        <subject type="cpnat:object" typeuri="http://tt.se/spec/object/1.0">
+          <name>The Wildabouts</name>
+        </subject>
+        <slugline>weilanddödUV</slugline>
+        <headline>Scott Weiland är död</headline>
+        <description role="drol:caption">Den amerikanske rockstjärnan Scott Weiland är död, uppger
+          hans fru för LA Times. Weiland var på turné med sitt band The Wildabouts när han hittades
+          avliden i sin turnébuss i Minnesota på torsdagskvällen. Weiland, som kämpat mot
+          drogmissbruk i många år,</description>
+        <contentMetaExtProperty type="ttext:profile" literal="PUBL"/>
+        <contentMetaExtProperty type="ttext:representationtype" literal="complete"/>
+        <contentMetaExtProperty type="ttext:job" literal="109122"/>
+        <contentMetaExtProperty type="ttext:webprio" literal="2"/>
+        <contentMetaExtProperty type="ttext:charcount" literal="923"/>
+        <contentMetaExtProperty type="ttext:originaltransmissionreference" literal="194983"/>
+      </contentMeta>
+      <assert literal="plc_usa">
+        <type qcode="cpnat:geoArea"/>
+        <name>USA</name>
+        <geoAreaDetails>
+          <position latitude="37.09024" longitude="-95.712891"/>
+        </geoAreaDetails>
+      </assert>
+      <contentSet>
+        <!-- this html5 is valid XML -->
+        <inlineXML contenttype="text/html">
+          <html>
+            <head>
+              <title>Scott Weiland är död</title>
+            </head>
+            <body>
+              <article>
+                <section data-charcount="923">
+                  <h1>Scott Weiland är död</h1>
+                  <div class="dat">
+                    <span class="vignette">Musik</span>
+                    <span class="source">TT</span>
+                  </div>
+                  <div class="bodytext">
+                    <p>Den amerikanske rockstjärnan Scott Weiland är död, uppger hans fru för LA
+                      Times. Weiland var på turné med sitt band The Wildabouts när han hittades
+                      avliden i sin turnébuss i Minnesota på torsdagskvällen.</p>
+                    <p>Weiland, som kämpat mot drogmissbruk i många år, blev 48 år. Han är kanske
+                      mest känd för sin tid som sångare i Stone Temple Pilots, som han fick sparken
+                      från 2013. Han var även sångare i Velvet Revolver som bland annat bestod av
+                      Guns N' Roses-stjärnorna Slash, Matt Sorum och Duff McKagan, men fick sparken
+                      också från det bandet.</p>
+                    <p>Reaktionerna på Weilands död lät inte vänta på sig när nyheten spred sig över
+                      världen på fredagsmorgonen, då namnkunniga artister som Dave Navarro, Ryan
+                      Adams, Juliette Lewis och Krist Novoselic uttryckte sin bestörtning på sociala
+                      medier.</p>
+                    <p>Scott Weiland and The Wildabouts skulle ha spelat i Stockholm och Göteborg i
+                      september i år, men spelningarna ställdes in.</p>
+                    <blockquote>Vi har nu personal på plats och man försöker bilda sig en
+                      uppfattning om hur olycksplatsen ser ut. Vi har ännu inte fått någon
+                      återrapportering, säger Maria Jakobsson, kommunikatör vid polisen i
+                      Norrbotten.</blockquote>
+                    <h2>Mellanrubrik</h2>
+                    <h5 class="question">Vad heter din favoritskiva?</h5>
+                  </div>
+                  <figure>
+                    <img
+                      src="https://beta.tt.se/media/text/151204-weilanddoduv-194983/a000_CroppedThumbnail.jpg"
+                      alt="Scott Weiland. ARKIVBILD." data-assoc-ref="a000"
+                      data-uri="http://tt.se/media/image/8B0CC3D8EE0440888EDB6A6D4E72003C"
+                      data-preview-src="https://beta.tt.se/media/text/151204-weilanddoduv-194983/a000_NormalPreview.jpg"/>
+                    <div class="byline">Victoria Will/AP/TT</div>
+                    <figcaption>Scott Weiland. ARKIVBILD.</figcaption>
+                  </figure>
+                </section>
+              </article>
+            </body>
+          </html>
+        </inlineXML>
+      </contentSet>
+    </newsItem>
+    <newsItem guid="http://tt.se/media/image/8B0CC3D8EE0440888EDB6A6D4E72003C" version="1"
+      standard="NewsML-G2" standardversion="2.20" conformance="power">
+      <catalogRef href="http://www.iptc.org/std/catalog/catalog.IPTC-G2-Standards_24.xml"/>
+      <catalogRef href="http://tt.se/spec/catalog/catalog.tt-g2.1_0.xml"/>
+      <itemMeta>
+        <itemClass qcode="ninat:picture"/>
+        <provider qcode="nprov:TT"/>
+        <!-- This <versionCreated> is faked to make the XML validate. It does not reflect the creation time of this <newsItem>. -->
+        <versionCreated>2015-12-04T10:54:09+01:00</versionCreated>
+      </itemMeta>
+      <contentMeta>
+        <description role="drol:caption">Scott Weiland. ARKIVBILD.</description>
+        <contentMetaExtProperty type="ttext:representationtype" literal="incomplete"/>
+      </contentMeta>
+      <contentSet>
+        <remoteContent
+          href="https://beta.tt.se/media/text/151204-weilanddoduv-194983/a000_CroppedThumbnail.jpg"
+          contenttype="image/jpeg" size="43144" width="512" height="512">
+          <remoteContentExtProperty type="ttrend:variant" literal="Cropped"/>
+          <remoteContentExtProperty type="ttrend:usage" literal="Thumbnail"/>
+        </remoteContent>
+        <remoteContent
+          href="https://beta.tt.se/media/text/151204-weilanddoduv-194983/a000_NormalPreview.jpg"
+          contenttype="image/jpeg" rendition="rnd:preview" size="79978" width="1024" height="686">
+          <remoteContentExtProperty type="ttrend:variant" literal="Normal"/>
+          <remoteContentExtProperty type="ttrend:usage" literal="Preview"/>
+        </remoteContent>
+        <remoteContent
+          href="https://beta.tt.se/media/text/151204-weilanddoduv-194983/a000_WatermarkPreview.jpg"
+          contenttype="image/jpeg" size="99463" width="1024" height="686">
+          <remoteContentExtProperty type="ttrend:variant" literal="Watermark"/>
+          <remoteContentExtProperty type="ttrend:usage" literal="Preview"/>
+        </remoteContent>
+        <remoteContent
+          href="https://beta.tt.se/media/text/151204-weilanddoduv-194983/a000_CroppedPreview.jpg"
+          contenttype="image/jpeg" size="131912" width="1024" height="1024">
+          <remoteContentExtProperty type="ttrend:variant" literal="Cropped"/>
+          <remoteContentExtProperty type="ttrend:usage" literal="Preview"/>
+        </remoteContent>
+        <remoteContent
+          href="https://beta.tt.se/media/text/151204-weilanddoduv-194983/a000_NormalHires.jpg"
+          contenttype="image/jpeg" rendition="rnd:highRes" size="792286" width="4647" height="3114">
+          <remoteContentExtProperty type="ttrend:variant" literal="Normal"/>
+          <remoteContentExtProperty type="ttrend:usage" literal="Hires"/>
+        </remoteContent>
+        <remoteContent
+          href="https://beta.tt.se/media/text/151204-weilanddoduv-194983/a000_NormalThumbnail.jpg"
+          contenttype="image/jpeg" rendition="rnd:thumbnail" size="31646" width="512" height="343">
+          <remoteContentExtProperty type="ttrend:variant" literal="Normal"/>
+          <remoteContentExtProperty type="ttrend:usage" literal="Thumbnail"/>
+        </remoteContent>
+      </contentSet>
+    </newsItem>
+  </itemSet>
+</newsMessage>

@@ -88,7 +88,7 @@
 			</xsl:choose>
 		</xsl:variable>
 		
-		<xsl:variable name="sektion">
+<!--		<xsl:variable name="sektion">
 			<xsl:choose>
 				<xsl:when test="contains($produktkoder,':MFT')">Feature</xsl:when>
 				<xsl:when test="contains($produktkoder,':FT')">Feature</xsl:when>
@@ -109,6 +109,16 @@
 				<xsl:when test="contains($produktkoder,':TTNOJ')">Nöje och Kultur</xsl:when>
 				<xsl:when test="contains($produktkoder,':TTREC')">Nöje och Kultur</xsl:when>
 				<xsl:when test="contains($produktkoder,':TTNOJKULN')">Nöje och Kultur</xsl:when>
+				<xsl:otherwise>Inrikes</xsl:otherwise>
+			</xsl:choose>
+		</xsl:variable>
+-->		
+		<xsl:variable name="sektion" >
+			<xsl:choose>
+				<xsl:when test="normalize-space(newsMessage/itemSet/newsItem[@guid = $mainuri]/contentMeta/contentMetaExtProperty[@type = 'ttext:sector']/@literal) = 'UTR'">Utrikes</xsl:when>
+				<xsl:when test="normalize-space(newsMessage/itemSet/newsItem[@guid = $mainuri]/contentMeta/contentMetaExtProperty[@type = 'ttext:sector']/@literal) = 'SPT'">Sport</xsl:when>
+				<xsl:when test="normalize-space(newsMessage/itemSet/newsItem[@guid = $mainuri]/contentMeta/contentMetaExtProperty[@type = 'ttext:sector']/@literal) = 'EKO'">Ekonomi</xsl:when>
+				<xsl:when test="normalize-space(newsMessage/itemSet/newsItem[@guid = $mainuri]/contentMeta/contentMetaExtProperty[@type = 'ttext:sector']/@literal) = 'KLT'">Nöje och kultur</xsl:when>
 				<xsl:otherwise>Inrikes</xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>

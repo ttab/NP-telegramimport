@@ -19,6 +19,7 @@
 	       2015-09-16 JL lade till hantering av aside notes
 	       2015-09-23 JL Ändrade bildlänk och fixade med dateline
               2016-08-22 JL Kompletteringar inför införande av footer och h5
+              2016-10-03 JL justering av visning av sportresultat
 	-->
 
 	<xsl:variable name="npdoc_ns">http://www.infomaker.se/npdoc/2.1</xsl:variable> <!-- NP vill ha namespace på alla element. -->
@@ -123,6 +124,21 @@
 		</npdoc>
 	</xsl:template>
 	
+	<!-- Start av sportresultat -->
+	<xsl:template match="section[@class = 'sport']">
+		<npdoc version="2.1" xml:lang="sv" xmlns="http://www.infomaker.se/npdoc/2.1">
+			<xsl:element name="headline" namespace="{$npdoc_ns}"><xsl:element name="p" namespace="{$npdoc_ns}"><xsl:value-of select="normalize-space(concat(h1[@class = 'sport-location'],' ',h1[@class = 'sport-what']))"/></xsl:element></xsl:element>
+			<xsl:element name="pagedateline" namespace="{$npdoc_ns}"><xsl:element name="p" namespace="{$npdoc_ns}"><xsl:value-of select="normalize-space(h1[@class = 'sport-discipline'])"/></xsl:element></xsl:element>
+			<xsl:element name="dateline" namespace="{$npdoc_ns}"><xsl:element name="p" namespace="{$npdoc_ns}">TT</xsl:element></xsl:element>
+			<xsl:element name="body" namespace="{$npdoc_ns}">
+				<xsl:apply-templates/>
+			</xsl:element>
+		</npdoc>
+	</xsl:template>
+	
+	<xsl:template match="h1[@class = 'sport-location']"></xsl:template>
+	<xsl:template match="h1[@class = 'sport-what']"></xsl:template>
+	<xsl:template match="h1[@class = 'sport-discipline']"></xsl:template>
 	
 	<!-- Start av sportresultat -->
 	<xsl:template match="div[@class = 'sport']">

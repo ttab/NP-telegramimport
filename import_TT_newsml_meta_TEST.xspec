@@ -18,7 +18,7 @@
         <x:expect label="Vi ska få korrekt externt system" test="metadata/ref/external_system_id = '41'" />
         <x:expect label="Vi ska få korrekt externt id" test="metadata/ref/external_id[1] = 'http://tt.se/media/text/151204-weilanddod-194798'" />
         <x:expect label="Vi ska få korrekt slugg" test="metadata/slug = 'weilanddödUV'" />
-        <x:expect label="Vi ska få korrekt avdelning" test="metadata/custom_1 = 'Nöje och Kultur'" />
+        <x:expect label="Vi ska få korrekt avdelning" test="metadata/custom_1 = 'Nöje och kultur'" />
         <x:expect label="Vi ska få korrekt produktkoder" test="metadata/custom_2 = ':TTNOJKUL:TTNOJKULN:TWNOJ:'" />
         <x:expect label="Vi ska få korrekt custom_3" test="metadata/custom_3 = '2'" />
         <x:expect label="Vi ska få tomt custom_4" test="metadata/custom_4 = ''" />

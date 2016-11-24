@@ -132,6 +132,7 @@
           avliden i sin turnébuss i Minnesota på torsdagskvällen. Weiland, som kämpat mot
           drogmissbruk i många år,</description>
         <contentMetaExtProperty type="ttext:profile" literal="PUBL"/>
+        <contentMetaExtProperty type="ttext:sector" literal="KLT"/>
         <contentMetaExtProperty type="ttext:representationtype" literal="complete"/>
         <contentMetaExtProperty type="ttext:job" literal="109122"/>
         <contentMetaExtProperty type="ttext:webprio" literal="2"/>

@@ -14,6 +14,7 @@
               JL 2016-01-14 Lade till hantering för TT print
              JL 2016-02-05 Lade till hantering för Pressmeddelanden
              JL 2016-09-23 Tog bort användning av externt id.
+             JL 2016-10-03 Justeringar efter formatändring
 	-->
 	
 	<xsl:output method="xml" indent="yes" encoding="UTF-8" standalone="yes"/>

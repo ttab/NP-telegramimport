@@ -12,9 +12,10 @@
 	       Komplettering för att klara contentMetaExtPropertys båda varianter. JL 2015-11-04
 	       JL 2016-12-04 Lade till så ersatta texter markeras
               JL 2016-01-14 Lade till hantering för TT print
-             JL 2016-02-05 Lade till hantering för Pressmeddelanden
-             JL 2016-09-23 Tog bort användning av externt id.
-             JL 2016-10-03 Justeringar efter formatändring
+              JL 2016-02-05 Lade till hantering för Pressmeddelanden
+              JL 2016-09-23 Tog bort användning av externt id.
+              JL 2016-10-03 Justeringar efter formatändring
+              JL 2017-04-28 Lade till prod_action
 	-->
 	
 	<xsl:output method="xml" indent="yes" encoding="UTF-8" standalone="yes"/>
@@ -185,6 +186,7 @@
 			</xsl:if>-->
                     <!-- ref_action -->
 			<!-- ref_id -->
+			<prod_action>2</prod_action>
 			<xsl:if test="newsMessage/itemSet/newsItem[@guid = $mainuri]/itemMeta/link[@rel ='irel:previousVersion']">
 					<ref>
 						<external_system_id>41</external_system_id>

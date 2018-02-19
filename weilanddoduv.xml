@@ -185,10 +185,10 @@
                   </div>
                   <figure>
                     <img
-                      src="https://beta.tt.se/media/text/151204-weilanddoduv-194983/a000_CroppedThumbnail.jpg"
+                      src="https://app.tt.se/media/text/151204-weilanddoduv-194983/a000_CroppedThumbnail.jpg"
                       alt="Scott Weiland. ARKIVBILD." data-assoc-ref="a000"
                       data-uri="http://tt.se/media/image/8B0CC3D8EE0440888EDB6A6D4E72003C"
-                      data-preview-src="https://beta.tt.se/media/text/151204-weilanddoduv-194983/a000_NormalPreview.jpg"/>
+                      data-preview-src="https://app.tt.se/media/text/151204-weilanddoduv-194983/a000_NormalPreview.jpg"/>
                     <div class="byline">Victoria Will/AP/TT</div>
                     <figcaption>Scott Weiland. ARKIVBILD.</figcaption>
                   </figure>
@@ -215,37 +215,37 @@
       </contentMeta>
       <contentSet>
         <remoteContent
-          href="https://beta.tt.se/media/text/151204-weilanddoduv-194983/a000_CroppedThumbnail.jpg"
+          href="https://app.tt.se/media/text/151204-weilanddoduv-194983/a000_CroppedThumbnail.jpg"
           contenttype="image/jpeg" size="43144" width="512" height="512">
           <remoteContentExtProperty type="ttrend:variant" literal="Cropped"/>
           <remoteContentExtProperty type="ttrend:usage" literal="Thumbnail"/>
         </remoteContent>
         <remoteContent
-          href="https://beta.tt.se/media/text/151204-weilanddoduv-194983/a000_NormalPreview.jpg"
+          href="https://app.tt.se/media/text/151204-weilanddoduv-194983/a000_NormalPreview.jpg"
           contenttype="image/jpeg" rendition="rnd:preview" size="79978" width="1024" height="686">
           <remoteContentExtProperty type="ttrend:variant" literal="Normal"/>
           <remoteContentExtProperty type="ttrend:usage" literal="Preview"/>
         </remoteContent>
         <remoteContent
-          href="https://beta.tt.se/media/text/151204-weilanddoduv-194983/a000_WatermarkPreview.jpg"
+          href="https://app.tt.se/media/text/151204-weilanddoduv-194983/a000_WatermarkPreview.jpg"
           contenttype="image/jpeg" size="99463" width="1024" height="686">
           <remoteContentExtProperty type="ttrend:variant" literal="Watermark"/>
           <remoteContentExtProperty type="ttrend:usage" literal="Preview"/>
         </remoteContent>
         <remoteContent
-          href="https://beta.tt.se/media/text/151204-weilanddoduv-194983/a000_CroppedPreview.jpg"
+          href="https://app.tt.se/media/text/151204-weilanddoduv-194983/a000_CroppedPreview.jpg"
           contenttype="image/jpeg" size="131912" width="1024" height="1024">
           <remoteContentExtProperty type="ttrend:variant" literal="Cropped"/>
           <remoteContentExtProperty type="ttrend:usage" literal="Preview"/>
         </remoteContent>
         <remoteContent
-          href="https://beta.tt.se/media/text/151204-weilanddoduv-194983/a000_NormalHires.jpg"
+          href="https://app.tt.se/media/text/151204-weilanddoduv-194983/a000_NormalHires.jpg"
           contenttype="image/jpeg" rendition="rnd:highRes" size="792286" width="4647" height="3114">
           <remoteContentExtProperty type="ttrend:variant" literal="Normal"/>
           <remoteContentExtProperty type="ttrend:usage" literal="Hires"/>
         </remoteContent>
         <remoteContent
-          href="https://beta.tt.se/media/text/151204-weilanddoduv-194983/a000_NormalThumbnail.jpg"
+          href="https://app.tt.se/media/text/151204-weilanddoduv-194983/a000_NormalThumbnail.jpg"
           contenttype="image/jpeg" rendition="rnd:thumbnail" size="31646" width="512" height="343">
           <remoteContentExtProperty type="ttrend:variant" literal="Normal"/>
           <remoteContentExtProperty type="ttrend:usage" literal="Thumbnail"/>

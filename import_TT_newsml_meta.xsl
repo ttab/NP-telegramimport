@@ -16,6 +16,7 @@
               JL 2016-09-23 Tog bort användning av externt id.
               JL 2016-10-03 Justeringar efter formatändring
               JL 2017-04-28 Lade till prod_action
+	       JL 2022-02-08 Skapade en SamlaEntiteter för att kunna begränsa längden på strängarna i custem-fälten.
 	-->
 	
 	<xsl:output method="xml" indent="yes" encoding="UTF-8" standalone="yes"/>
@@ -156,10 +157,10 @@
              </xsl:variable>
 		<xsl:variable name="jobbid" select="newsMessage/itemSet/newsItem[@guid = $mainuri]/contentMeta/contentMetaExtProperty[@type = 'ttext:job']/@literal"/>
 
-		<xsl:variable name="personer"><xsl:for-each select="newsMessage/itemSet/newsItem[@guid = $mainuri]/contentMeta/subject[@type = 'cpnat:person']"><xsl:value-of select="./name"/><xsl:if test="position() != last()">,</xsl:if></xsl:for-each></xsl:variable>           
-		<xsl:variable name="organisationer"><xsl:for-each select="newsMessage/itemSet/newsItem[@guid = $mainuri]/contentMeta/subject[@type = 'cpnat:organisation']"><xsl:value-of select="./name"/><xsl:if test="position() != last()">,</xsl:if></xsl:for-each></xsl:variable>           
-		<xsl:variable name="platser"><xsl:for-each select="newsMessage/itemSet/newsItem[@guid = $mainuri]/contentMeta/subject[@type = 'cpnat:place']"><xsl:value-of select="./name"/><xsl:if test="position() != last()">,</xsl:if></xsl:for-each></xsl:variable>           
-		<xsl:variable name="objekt"><xsl:for-each select="newsMessage/itemSet/newsItem[@guid = $mainuri]/contentMeta/subject[@type = 'cpnat:object']"><xsl:value-of select="./name"/><xsl:if test="position() != last()">,</xsl:if></xsl:for-each></xsl:variable>           
+		<xsl:variable name="personer"><xsl:call-template name="SamlaEntiteter"><xsl:with-param name="mainuri" select="$mainuri"/><xsl:with-param name="typ" select="'cpnat:person'"></xsl:with-param></xsl:call-template></xsl:variable>           
+		<xsl:variable name="organisationer"><xsl:call-template name="SamlaEntiteter"><xsl:with-param name="mainuri" select="$mainuri"/><xsl:with-param name="typ" select="'cpnat:organisation'"></xsl:with-param></xsl:call-template></xsl:variable>           
+		<xsl:variable name="platser"><xsl:call-template name="SamlaEntiteter"><xsl:with-param name="mainuri" select="$mainuri"/><xsl:with-param name="typ" select="'cpnat:place'"></xsl:with-param></xsl:call-template></xsl:variable>           
+		<xsl:variable name="objekt"><xsl:call-template name="SamlaEntiteter"><xsl:with-param name="mainuri" select="$mainuri"/><xsl:with-param name="typ" select="'cpnat:object'"></xsl:with-param></xsl:call-template></xsl:variable>           
 		
 		<xsl:variable name="datetimesent"><xsl:value-of select="normalize-space(substring-before(newsMessage/itemSet/newsItem[@guid = $mainuri]/itemMeta/versionCreated,'+'))"/></xsl:variable> <!-- Datum och tid då nyheten publicerades -->
 
@@ -226,6 +227,13 @@
                     </links>
 			<sent pattern="yyyy-MM-dd'T'HH:mm:ss" locale="sv"><xsl:value-of select="$datetimesent"/></sent> <!-- I NP-importen heter fältet sent och visas i telegramfliken som Skickat. Fältet Mottaget sätts automatiskt av NP-importen -->
 		</metadata>
+	</xsl:template>
+	
+    <!-- Template för att samla entiteter som senare ska läggas i custom-fälten. Antalet 40 kan ändras, det finns där för att inte passera gränsen på 1000 bytes som custom-fälten har i NP. -->
+	<xsl:template name="SamlaEntiteter">
+		<xsl:param name="mainuri"/>
+		<xsl:param name="typ"/>
+		<xsl:for-each select="newsMessage/itemSet/newsItem[@guid = $mainuri]/contentMeta/subject[@type = $typ]"><xsl:if test="position() &lt; 40"><xsl:value-of select="./name"/><xsl:if test="position() != last()">,</xsl:if></xsl:if></xsl:for-each>		
 	</xsl:template>
 	
 	
